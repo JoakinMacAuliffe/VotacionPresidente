@@ -1,6 +1,4 @@
-import java.util.LinkedList;
-import java.util.Stack;
-import java.util.Queue;
+import java.util.*;
 import java.time.LocalTime;
 
 public class UrnaElectoral {
@@ -16,6 +14,10 @@ public class UrnaElectoral {
 
     }
 
+    void agregarCandidato(Candidato candidato){
+        listaCandidatos.add(candidato);
+    }
+
     boolean verificarVotante(Votante votanteID){ //Verifica si el votante ya ha votado
         return votanteID.yaVoto;
     }
@@ -26,13 +28,28 @@ public class UrnaElectoral {
         int[] timestamp = {time.getHour(), time.getMinute(), time.getSecond()};
         Voto voto = new Voto(idCounter, votanteID.id, candidatoID, timestamp);
 
-        if (votanteID.yaVoto == false) {
+        if (!votanteID.yaVoto) {
             idCounter++;
             historialVotos.push(voto);
             votanteID.yaVoto = true;
+
+
+
             //Falta agregar el voto al candidato
         }
     }
+
+    void obtenerResultados(){
+
+        Map<Candidato, Integer> map = new HashMap<>();
+
+        for(int i = 0; i < listaCandidatos.size(); i++){
+            Candidato candidato = listaCandidatos.get(i);
+            map.put(candidato, candidato.)
+        }
+
+    }
+
 }
 
 
