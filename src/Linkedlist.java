@@ -1,19 +1,12 @@
 public class Linkedlist {
     Node head;
-
-    public class Node{
-        //CAMBIAR WEA
+    public static class Node{
         Candidato value;
         Node next;
-        Node(Candidato value, Node next){
-            this.value = value;
-            this.next = next;
-        }
         Node(Candidato value){
             this.value = value;
             next = null;
         }
-
     }
 
     Linkedlist() {
@@ -21,29 +14,21 @@ public class Linkedlist {
     }
 
     void insert(Candidato candidato){
-
-        Node newNode = new Node(candidato);
-
         if(head == null){
-            head = newNode;
-        } else {
+            //En el caso de que la lista esté vacía, la ID es 1.
+            candidato.setID(1);
+            head = new Node(candidato);
+        }else{
             Node current = head;
-            while(current.next != null) {
+            while(current.next != null){
                 current = current.next;
             }
-            current.next = newNode;
+            // Asignar ID de tal manera que sea la del candidato anterior + 1
+            int newID = current.value.getID() + 1;
+            candidato.setID(newID);
+            // Añade el candidato a la linkedlist
+            current.next = new Node(candidato);
         }
-
-    }
-
-    int getSize(){
-        int size = 0;
-        Node current = head;
-        while(current != null){
-            size++;
-            current = current.next;
-        }
-    return size;
     }
 
 }

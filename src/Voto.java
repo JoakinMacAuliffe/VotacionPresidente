@@ -3,14 +3,13 @@ public class Voto {
     private int id;
     private int votanteID;
     private int cantidatoID;
-    int[] timestamp = new int[3];
+    int[] timestamp;
 
-    public Voto(int id, int votanteID, int cantidatoID, int[] timestamp) {
+    public Voto(int votanteID, int cantidatoID, int[] timestamp) {
 
-        this.id = id;
         this.votanteID = votanteID;
         this.cantidatoID = cantidatoID;
-        this.timestamp = new int[]{0, 0, 0};
+        this.timestamp = timestamp;
 
     }
 

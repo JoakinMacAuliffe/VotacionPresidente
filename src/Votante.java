@@ -4,7 +4,12 @@ public class Votante {
     String nombre;
     boolean yaVoto;
 
-    void yaVoto(){
+    Votante(int id, String nombre){
+        this.id = id;
+        this.nombre = nombre;
+    }
+
+    void marcarComoVotado(){
         yaVoto = true;
     }
 
