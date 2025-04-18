@@ -3,19 +3,36 @@ import java.time.LocalTime;
 
 public class UrnaElectoral {
 
-    LinkedList<Candidato> listaCandidatos = new LinkedList<>();
+    Linkedlist listaCandidatos = new Linkedlist();
     Stack<Voto> historialVotos = new Stack<>();
-    Queue<Voto> votosReportados = new LinkedList<>();
+    Queue<Voto> votosReportados = new LinkedList<>() {
+    };
     int idCounter = 0;
 
-    public UrnaElectoral(LinkedList<Candidato> listaCandidatos){
+    public UrnaElectoral(){
 
-        this.listaCandidatos = listaCandidatos;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese cantidad de candidatos: ");
+        int cantidad = scanner.nextInt();
+
+        for(int i = 0; i < cantidad; i++){
+
+            System.out.print("Ingrese nombre del candidato " + i + ": ");
+            String nombre = scanner.nextLine();
+
+            System.out.print("Ingrese partido del candidato " + i + ": ");
+            String partido = scanner.nextLine();
+
+            Candidato candidato = new Candidato(i+1, nombre, partido);
+
+            listaCandidatos.insert(candidato);
+        }
 
     }
 
     void agregarCandidato(Candidato candidato){
-        listaCandidatos.add(candidato);
+        listaCandidatos.insert(candidato);
     }
 
     boolean verificarVotante(Votante votanteID){ //Verifica si el votante ya ha votado
@@ -33,7 +50,7 @@ public class UrnaElectoral {
             historialVotos.push(voto);
             votanteID.yaVoto = true;
 
-
+            //Recorrer linked list
 
             //Falta agregar el voto al candidato
         }
@@ -43,9 +60,10 @@ public class UrnaElectoral {
 
         Map<Candidato, Integer> map = new HashMap<>();
 
-        for(int i = 0; i < listaCandidatos.size(); i++){
+        for(int i = 0; i < listaCandidatos.getSize(); i++){
             Candidato candidato = listaCandidatos.get(i);
             map.put(candidato, candidato.)
+
         }
 
     }

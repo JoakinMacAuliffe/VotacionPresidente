@@ -7,6 +7,12 @@ public class Candidato {
 	private String nombre, partido;
 	private Queue<Voto> votosRecibidos = new LinkedList<>();
 
+	public Candidato(int id, String nombre, String partido){
+		this.id = id;
+		this.nombre = nombre;
+		this.partido = partido;
+	}
+
 	public void añadeVoto(Voto v) {
 		votosRecibidos.add(v);
 	}
