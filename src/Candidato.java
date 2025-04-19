@@ -43,6 +43,7 @@ public class Candidato {
 		// Retorna null si no se encuentra un voto cuya id coincida con idVoto.
         return null;
     }
+
 	void setID(int id){ // Usado para que las IDs se asignen automaticamente
 		this.id = id;
 	}

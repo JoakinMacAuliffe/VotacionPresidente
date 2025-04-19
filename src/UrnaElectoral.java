@@ -68,12 +68,11 @@ public class UrnaElectoral {
         Voto votoARetirar = candidatoID.retirarVoto(idVoto);
         if(votoARetirar == null){ // La función retirarVoto() retorna null si no se encuentra el voto (ver clase Candidato).
             System.out.println("Error: Voto no encontrado.");
-        }else {
+        }else{
             // Añade el voto al queue votosReportados
             votosReportados.add(votoARetirar);
             System.out.println("El voto de ID " + idVoto + " para el candidato " + candidatoID.getNombre() +
                     " (ID " + candidatoID.getID() + ") ha sido reportado");
-
         }
     }
 
@@ -104,7 +103,6 @@ public class UrnaElectoral {
             System.out.println(votos + " votos");
         }
         System.out.println("-----------------------------------------------");
-
     }
 
 }
