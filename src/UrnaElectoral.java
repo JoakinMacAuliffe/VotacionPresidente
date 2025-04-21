@@ -61,6 +61,7 @@ public class UrnaElectoral {
             }
         }else{ // En caso de que el candidato buscado no exista
             System.out.println("Error: Candidato con ID " + candidatoID + " no encontrado.");
+            idCounter--;
         }
     }
 
