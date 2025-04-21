@@ -22,43 +22,45 @@ public class UrnaElectoral {
         LocalTime time = LocalTime.now();
         int[] timestamp = {time.getHour(), time.getMinute(), time.getSecond()};
 
+        // Instancia un voto para asignarlo al votante
+        Voto voto = new Voto(votanteID.id, candidatoID, timestamp);
+        // Asigna ID al voto instanciado y lo considera en el idCounter
+        voto.setId(idCounter + 1);
+        idCounter++;
+
+        //Recorrer linkedlist y buscar al candidato
+        Linkedlist.Node current = listaCandidatos.head;
+        boolean candidatoEncontrado = false; // Usado para verificar si el candidato existe o no
+
+        // Buscar candidato, current.value es el candidato.
+        while(current != null){
+            if(current.value.getID() == candidatoID){ // Si es que se cumple esta condición, el candidato existe
+                candidatoEncontrado = true;
+                break;
+            }
+            current = current.next;
+        }
         // Verifica si el votante ya ha votado
-        if (!verificarVotante(votanteID)) {
-
-            //Recorrer linkedlist y buscar al candidato
-            Linkedlist.Node current = listaCandidatos.head;
-            boolean candidatoEncontrado = false; // Usado para verificar si el candidato existe o no
-
-            while(current != null){
-                if(current.value.getID() == candidatoID){ // Si es que se cumple esta condición, el candidato existe
-                    candidatoEncontrado = true;
-                    // Instancia un voto para asignarlo al votante
-                    Voto voto = new Voto(votanteID.id, candidatoID, timestamp);
-
-                    // Asigna ID al voto y lo considera en el idCounter
-                    voto.setId(idCounter+1);
-                    idCounter++;
-
-                    // Añade el voto al stack historialVotos
-                    historialVotos.push(voto);
-
-                    //Asigna el atributo yaVoto del votante a true, de tal manera que no pueda volver a votar
-                    votanteID.marcarComoVotado();
-
-                    // Si se encuentra al candidato, se añade el voto a su respectivo queue.
-                    current.value.anadeVoto(voto);
-                    System.out.println("Voto añadido al candidato " + current.value.getNombre() +
-                            " (ID " + current.value.getID() + ") correctamente. " +
-                            "ID: " + voto.getId());
-                    break;
-                }
-                current = current.next;
+        if (candidatoEncontrado) {
+            // Asigna ID al voto instanciado y lo considera en el idCounter
+            if(!verificarVotante(votanteID)) {
+                // Añade el voto al stack historialVotos
+                historialVotos.push(voto);
+                //Asigna el atributo yaVoto del votante a true, de tal manera que no pueda volver a votar
+                votanteID.marcarComoVotado();
+                // Si se encuentra al candidato, se añade el voto a su respectivo queue.
+                current.value.anadeVoto(voto);
+                System.out.println("Voto añadido al candidato " + current.value.getNombre() +
+                        " (ID " + current.value.getID() + ") correctamente. " +
+                        "ID: " + voto.getId());
+            }else{ // En caso de que el votante ya haya votado previamente
+                System.out.println("Error: El votante ya ha votado previamente, voto reportado.");
+                // En este caso no se usa el metodo reportarVoto, pues el voto no fue añadido al candidato,
+                // por lo que no hay que retirarlo, simplemente añadirlo a votosReportados.
+                votosReportados.add(voto);
             }
-            if(!candidatoEncontrado){ // En caso de que el candidato con la id candidatoID no exista
-                System.out.println("Error: Candidato con ID " + candidatoID + " no encontrado.");
-            }
-        }else{
-            System.out.println("Error: El votante ya ha votado previamente.");
+        }else{ // En caso de que el candidato buscado no exista
+            System.out.println("Error: Candidato con ID " + candidatoID + " no encontrado.");
         }
     }
 

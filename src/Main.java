@@ -22,16 +22,18 @@ class Main {
 
         ue.obtenerResultados();
 
-        ue.registrarVoto(v1, c1.getID());
-        ue.registrarVoto(v2, c2.getID());
-        ue.registrarVoto(v3, c1.getID());
+        ue.registrarVoto(v1, c1.getID()); // ID 1
+        ue.registrarVoto(v2, c2.getID()); // ID 2
+        ue.registrarVoto(v3, c1.getID()); // ID 3
         // Se asignan dos votos al candidato 1 y un voto al candidato 2.
 
         ue.obtenerResultados();
 
         // El votante 1 no puede votar pues ya votó por el candidato 1, por lo tanto la tabla de
-        // resultados queda igual.
-        ue.registrarVoto(v1, c3.getID());
+        // resultados queda igual. NOTA: Los votos reportados no se eliminan, sino se añaden a la cola votosReportados,
+        // por lo que tienen ID. Esto es importante a la hora de contar las IDs de los votos, en este caso
+        // la ID del voto es 4, sin embargo, no se aplica a ningún candidato.
+        ue.registrarVoto(v1, c3.getID()); // ID 4
 
         ue.obtenerResultados();
 
@@ -44,11 +46,13 @@ class Main {
         // Se registra un voto usando la ID numérica del candidato "Joakin", que en este caso es 3, pues al igual que
         // los votos, las ID se asignan automáticamente, y "Joakin" fue el 3er candidato en ser agregado por tanto
         // su ID es 3.
-        ue.registrarVoto(v4, 3);
+        ue.registrarVoto(v4, 3); // ID 5
 
         ue.obtenerResultados();
 
         // Se registra un voto para un candidato que no existe, imprimiendo un error en la consola
+        // Este es el único caso en donde el voto no tiene ID, pues al no poder ser almacenado en ningún lugar
+        // se elimina automáticamente.
         ue.registrarVoto(v5, 6);
 
         // Se reporta un voto cuya ID no existe, imprimiendo un error en la consola
