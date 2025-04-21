@@ -42,7 +42,6 @@ public class UrnaElectoral {
         }
         // Verifica si el votante ya ha votado
         if (candidatoEncontrado) {
-            // Asigna ID al voto instanciado y lo considera en el idCounter
             if(!verificarVotante(votanteID)) {
                 // Añade el voto al stack historialVotos
                 historialVotos.push(voto);
