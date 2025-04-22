@@ -17,22 +17,17 @@ public class UrnaElectoral {
     }
 
     void registrarVoto(Votante votanteID, int candidatoID) {
-
         // Toma el tiempo actual para asignarlo a int[] timestamp
         LocalTime time = LocalTime.now();
         int[] timestamp = {time.getHour(), time.getMinute(), time.getSecond()};
-
         // Instancia un voto para asignarlo al votante
         Voto voto = new Voto(votanteID.id, candidatoID, timestamp);
         // Asigna ID al voto instanciado y lo considera en el idCounter
         voto.setId(idCounter + 1);
         idCounter++;
-
-        //Recorrer linkedlist y buscar al candidato
-        Linkedlist.Node current = listaCandidatos.head;
         boolean candidatoEncontrado = false; // Usado para verificar si el candidato existe o no
-
         // Buscar candidato, current.value es el candidato.
+        Linkedlist.Node current = listaCandidatos.head;
         while(current != null){
             if(current.value.getID() == candidatoID){ // Si es que se cumple esta condición, el candidato existe
                 candidatoEncontrado = true;
