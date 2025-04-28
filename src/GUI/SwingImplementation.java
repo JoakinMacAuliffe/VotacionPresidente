@@ -9,7 +9,7 @@ public class SwingImplementation {
     public SwingImplementation() {
 
         JFrame startFrame = new JFrame("Votación Presidencial");
-        startFrame.setSize(430, 500);
+        startFrame.setSize(500, 500);
         startFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Terminar proceso una vez que se cierra el programa
 
         JPanel startPanel = new JPanel(new BorderLayout(10, 10));
@@ -39,16 +39,19 @@ public class SwingImplementation {
         JButton votanteButton = new JButton("Ingresar votante");
         JButton votoButton = new JButton("Ingresar voto");
         JButton candidatoButton = new JButton("Ingresar candidato");
+        JButton verDatosIngresadosButton = new JButton("Ver datos ingresados");
 
         buttons.put("UrnaElectoral", urnaElectoralButton);
         buttons.put("Votante", votanteButton);
         buttons.put("Voto", votoButton);
         buttons.put("Candidato", candidatoButton);
+        buttons.put("VerDatosIngresados", verDatosIngresadosButton);
 
         buttonPanel.add(urnaElectoralButton);
         buttonPanel.add(votanteButton);
         buttonPanel.add(votoButton);
         buttonPanel.add(candidatoButton);
+        buttonPanel.add(verDatosIngresadosButton);
 
         return new ButtonPanelResult(buttonPanel, buttons);
     }
