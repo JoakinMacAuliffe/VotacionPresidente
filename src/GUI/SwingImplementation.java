@@ -1,5 +1,4 @@
-// Intento de implementar una gui usando la librería swing.
-import java.io.*;
+package GUI;// Intento de implementar una gui usando la librería swing.
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
