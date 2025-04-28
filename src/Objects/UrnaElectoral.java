@@ -1,3 +1,5 @@
+package Objects;
+
 import java.util.*;
 import java.time.LocalTime;
 
@@ -44,7 +46,7 @@ public class UrnaElectoral {
                 votanteID.marcarComoVotado();
                 // Si se encuentra al candidato, se añade el voto a su respectivo queue.
                 current.value.anadeVoto(voto);
-                System.out.println("Voto añadido al candidato " + current.value.getNombre() +
+                System.out.println("Objects.Voto añadido al candidato " + current.value.getNombre() +
                         " (ID " + current.value.getID() + ") correctamente. " +
                         "ID: " + voto.getId());
             }else{ // En caso de que el votante ya haya votado previamente
@@ -54,7 +56,7 @@ public class UrnaElectoral {
                 votosReportados.add(voto);
             }
         }else{ // En caso de que el candidato buscado no exista
-            System.out.println("Error: Candidato con ID " + candidatoID + " no encontrado.");
+            System.out.println("Error: Objects.Candidato con ID " + candidatoID + " no encontrado.");
             idCounter--;
         }
     }
@@ -63,8 +65,8 @@ public class UrnaElectoral {
     void reportarVoto(Candidato candidatoID, int idVoto){
         // Instancia un voto y lo asigna al voto que se va a retirar
         Voto votoARetirar = candidatoID.retirarVoto(idVoto);
-        if(votoARetirar == null){ // La función retirarVoto() retorna null si no se encuentra el voto (ver clase Candidato).
-            System.out.println("Error: Voto no encontrado.");
+        if(votoARetirar == null){ // La función retirarVoto() retorna null si no se encuentra el voto (ver clase Objects.Candidato).
+            System.out.println("Error: Objects.Voto no encontrado.");
         }else{
             // Añade el voto al queue votosReportados
             votosReportados.add(votoARetirar);
@@ -76,7 +78,7 @@ public class UrnaElectoral {
     void obtenerResultados(){
     Map<Candidato, Integer> map = new HashMap<>();
         // Recorre el linkedlist y por cada nodo con un candidato, lo añade junto a sus votos en un map
-        // siendo el key un objeto de tipo Candidato y el value su cantidad de votos.
+        // siendo el key un objeto de tipo Objects.Candidato y el value su cantidad de votos.
         Linkedlist.Node current = listaCandidatos.head;
         while(current != null){
             map.put(current.value, current.value.getVotos());
@@ -96,7 +98,7 @@ public class UrnaElectoral {
             String partido = entry.getKey().getPartido();
             int votos = entry.getValue();
 
-            System.out.println("Candidato " + nombre + " (ID: " + ID + ") (Partido: " + partido + ")");
+            System.out.println("Objects.Candidato " + nombre + " (ID: " + ID + ") (Partido: " + partido + ")");
             System.out.println(votos + " votos");
         }
         System.out.println("-----------------------------------------------");

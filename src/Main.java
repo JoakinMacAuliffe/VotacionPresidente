@@ -1,4 +1,5 @@
-import GUI.SwingImplementation;
+import GUI.*;
+import Objects.*;
 
 class Main {
 

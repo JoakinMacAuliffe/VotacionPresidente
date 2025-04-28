@@ -1,10 +1,13 @@
-package GUI;// Intento de implementar una gui usando la librería swing.
+package GUI;
+import Objects.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SwingImplementation {
+
+
 
     public SwingImplementation() {
 
@@ -24,7 +27,7 @@ public class SwingImplementation {
         startFrame.setVisible(true);
 
         // Funciones de botones
-        JButton urnaElectoralButton = getStartButtonPanel().getButton("UrnaElectoral");
+        JButton urnaElectoralButton = getStartButtonPanel().getButton("Objects.UrnaElectoral");
         urnaElectoralButton.addActionListener(e -> {
 
         });
@@ -41,10 +44,10 @@ public class SwingImplementation {
         JButton candidatoButton = new JButton("Ingresar candidato");
         JButton verDatosIngresadosButton = new JButton("Ver datos ingresados");
 
-        buttons.put("UrnaElectoral", urnaElectoralButton);
-        buttons.put("Votante", votanteButton);
-        buttons.put("Voto", votoButton);
-        buttons.put("Candidato", candidatoButton);
+        buttons.put("Objects.UrnaElectoral", urnaElectoralButton);
+        buttons.put("Objects.Votante", votanteButton);
+        buttons.put("Objects.Voto", votoButton);
+        buttons.put("Objects.Candidato", candidatoButton);
         buttons.put("VerDatosIngresados", verDatosIngresadosButton);
 
         buttonPanel.add(urnaElectoralButton);
