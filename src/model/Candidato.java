@@ -1,4 +1,4 @@
-package Objects;
+package model;
 
 import java.util.Iterator;
 import java.util.LinkedList;

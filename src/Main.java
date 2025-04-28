@@ -1,5 +1,4 @@
-import GUI.*;
-import Objects.*;
+import view.*;
 
 class Main {
 

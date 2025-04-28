@@ -1,5 +1,6 @@
-package GUI;
-import Objects.*;
+package view;
+import view.panels.StartButtonPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
@@ -7,13 +8,18 @@ import java.util.Map;
 
 public class SwingImplementation {
 
-
+    private CardLayout cardLayout;
+    private JPanel cardPanel;
 
     public SwingImplementation() {
 
         JFrame startFrame = new JFrame("Votación Presidencial");
         startFrame.setSize(500, 500);
         startFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); // Terminar proceso una vez que se cierra el programa
+
+        // Inicializar primera pantalla
+        cardLayout = new CardLayout();
+        cardPanel = new JPanel(cardLayout);
 
         JPanel startPanel = new JPanel(new BorderLayout(10, 10));
 
@@ -23,17 +29,19 @@ public class SwingImplementation {
         startPanel.add(startTitle, BorderLayout.NORTH);
         startPanel.add(getStartButtonPanel().getPanel(), BorderLayout.CENTER);
 
-        startFrame.add(startPanel);
+        JPanel urnaElectoralPanel = new JPanel();
+
+        startFrame.add(cardPanel);
         startFrame.setVisible(true);
 
         // Funciones de botones
-        JButton urnaElectoralButton = getStartButtonPanel().getButton("Objects.UrnaElectoral");
+        JButton urnaElectoralButton = getStartButtonPanel().getButton("UrnaElectoral");
         urnaElectoralButton.addActionListener(e -> {
 
         });
     }
 
-    private static ButtonPanelResult getStartButtonPanel() {
+    private static StartButtonPanel getStartButtonPanel() {
 
         JPanel buttonPanel = new JPanel(new GridLayout(2, 2, 10, 10)); // Panel utilizado para organizar automaticamente posicion de botones
         Map<String, JButton> buttons = new HashMap<>();
@@ -44,10 +52,10 @@ public class SwingImplementation {
         JButton candidatoButton = new JButton("Ingresar candidato");
         JButton verDatosIngresadosButton = new JButton("Ver datos ingresados");
 
-        buttons.put("Objects.UrnaElectoral", urnaElectoralButton);
-        buttons.put("Objects.Votante", votanteButton);
-        buttons.put("Objects.Voto", votoButton);
-        buttons.put("Objects.Candidato", candidatoButton);
+        buttons.put("UrnaElectoral", urnaElectoralButton);
+        buttons.put("Votante", votanteButton);
+        buttons.put("Voto", votoButton);
+        buttons.put("Candidato", candidatoButton);
         buttons.put("VerDatosIngresados", verDatosIngresadosButton);
 
         buttonPanel.add(urnaElectoralButton);
@@ -56,26 +64,7 @@ public class SwingImplementation {
         buttonPanel.add(candidatoButton);
         buttonPanel.add(verDatosIngresadosButton);
 
-        return new ButtonPanelResult(buttonPanel, buttons);
-    }
-
-    private static class ButtonPanelResult {
-        private final JPanel panel;
-        private final Map<String, JButton> buttons;
-
-        public ButtonPanelResult(JPanel panel, Map<String, JButton> buttons) {
-            this.panel = panel;
-            this.buttons = buttons;
-        }
-
-        public JPanel getPanel() {
-            return panel;
-        }
-
-        public JButton getButton(String name) {
-            return buttons.get(name);
-        }
-
+        return new StartButtonPanel(buttonPanel, buttons);
     }
 
 }
