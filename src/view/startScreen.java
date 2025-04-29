@@ -1,6 +1,6 @@
 package view;
 
-import view.screens.urnaElectoralScreen;
+import view.screens.*;
 import view.panels.StartButtonPanel;
 import javax.swing.*;
 import java.awt.*;
@@ -30,10 +30,12 @@ public class startScreen {
 
         // Instanciar panel de urna electoral
         urnaElectoralScreen urnaElectoralScreen = new urnaElectoralScreen(cardPanel, cardLayout);
+        votanteScreen votanteScreen = new votanteScreen(cardPanel, cardLayout);
 
         // Indicar pantallas
         cardPanel.add(startPanel, "startScreen");
         cardPanel.add(urnaElectoralScreen.getPanel(), "urnaElectoralScreen");
+        cardPanel.add(votanteScreen.getPanel(), "votanteScreen");
 
         // Agregar el panel principal al frame de inicio
         startFrame.add(cardPanel);
@@ -49,7 +51,21 @@ public class startScreen {
             cardLayout.show(cardPanel, "urnaElectoralScreen");
         });
 
+        votanteButton.addActionListener(e -> {
+            cardLayout.show(cardPanel, "votanteScreen");
+        });
 
+        votoButton.addActionListener(e -> {
+            cardLayout.show(cardPanel, "votoScreen");
+        });
+
+        candidatoButton.addActionListener(e -> {
+            cardLayout.show(cardPanel, "candidatoScreen");
+        });
+
+        datosIngresadosButton.addActionListener(e -> {
+            cardLayout.show(cardPanel, "datosIngresadosScreen");
+        });
 
     }
 

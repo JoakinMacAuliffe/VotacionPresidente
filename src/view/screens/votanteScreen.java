@@ -3,11 +3,11 @@ package view.screens;
 import javax.swing.*;
 import java.awt.*;
 
-public class urnaElectoralScreen {
+public class votanteScreen {
 
     private final JPanel panel;
 
-    public urnaElectoralScreen(JPanel parentPanel, CardLayout cardLayout) {
+    public votanteScreen(JPanel parentPanel, CardLayout cardLayout) {
         panel = new JPanel();
         panel.add(new JLabel("test"));
         JButton button1 = addButton("test");
