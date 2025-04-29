@@ -4,7 +4,7 @@ class Main {
 
     public static void main(String[] args) {
 
-        new SwingImplementation();
+        new startScreen();
 
     }
 }
