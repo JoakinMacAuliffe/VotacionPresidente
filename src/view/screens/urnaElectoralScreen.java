@@ -2,20 +2,19 @@ package view.screens;
 
 import javax.swing.*;
 import java.awt.*;
+import view.panels.urnaElectoralPanel;
 
 public class urnaElectoralScreen {
 
     private final JPanel panel;
 
     public urnaElectoralScreen(JPanel parentPanel, CardLayout cardLayout) {
-        panel = new JPanel();
-        panel.add(new JLabel("test"));
-        JButton button1 = addButton("test");
-        panel.add(button1);
 
-        button1.addActionListener(e -> {
-            cardLayout.show(parentPanel, "startScreen");
-        });
+        panel = new urnaElectoralPanel().getPanel();
+
+//        button1.addActionListener(e -> {
+//            cardLayout.show(parentPanel, "startScreen");
+//        });
 
     }
 

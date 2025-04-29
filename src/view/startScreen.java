@@ -47,28 +47,26 @@ public class startScreen {
         startFrame.add(cardPanel);
         startFrame.setVisible(true);
 
+        // Crear botones
         JButton urnaElectoralButton = startButtonPanel.getButton("Insertar urna electoral");
         JButton votanteButton = startButtonPanel.getButton("Ingresar votante");
         JButton votoButton = startButtonPanel.getButton("Ingresar voto");
         JButton candidatoButton = startButtonPanel.getButton("Ingresar candidato");
         JButton datosIngresadosButton = startButtonPanel.getButton("Ver datos ingresados");
 
+        // Acciones de botones
         urnaElectoralButton.addActionListener(e -> {
             cardLayout.show(cardPanel, "urnaElectoralScreen");
         });
-
         votanteButton.addActionListener(e -> {
             cardLayout.show(cardPanel, "votanteScreen");
         });
-
         votoButton.addActionListener(e -> {
             cardLayout.show(cardPanel, "votoScreen");
         });
-
         candidatoButton.addActionListener(e -> {
             cardLayout.show(cardPanel, "candidatoScreen");
         });
-
         datosIngresadosButton.addActionListener(e -> {
             cardLayout.show(cardPanel, "datosIngresadosScreen");
         });

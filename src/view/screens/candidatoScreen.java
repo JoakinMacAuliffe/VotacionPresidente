@@ -10,6 +10,8 @@ public class candidatoScreen {
     public candidatoScreen(JPanel parentPanel, CardLayout cardLayout) {
         panel = new JPanel();
 
+
+
     }
 
     public JPanel getPanel() {
