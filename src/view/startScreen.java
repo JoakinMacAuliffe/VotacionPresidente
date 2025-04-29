@@ -23,26 +23,33 @@ public class startScreen {
 
         // Instanciar panel de inicio
         StartButtonPanel startButtonPanel = new StartButtonPanel();
-
-        // Instanciar pantalla de entrada
         JPanel startPanel = new JPanel(new BorderLayout(10, 10));
         JLabel startTitle = new JLabel("Votación Presidencial", SwingConstants.CENTER);
         startPanel.add(startTitle, BorderLayout.NORTH);
         startPanel.add(startButtonPanel.getPanel(), BorderLayout.CENTER);
 
-        urnaElectoralScreen urnaElectoralScreen = new urnaElectoralScreen();
+        // Instanciar panel de urna electoral
+        urnaElectoralScreen urnaElectoralScreen = new urnaElectoralScreen(cardPanel, cardLayout);
 
-        cardPanel.add(startPanel, "StartScreen");
+        // Indicar pantallas
+        cardPanel.add(startPanel, "startScreen");
         cardPanel.add(urnaElectoralScreen.getPanel(), "urnaElectoralScreen");
 
+        // Agregar el panel principal al frame de inicio
         startFrame.add(cardPanel);
         startFrame.setVisible(true);
 
         JButton urnaElectoralButton = startButtonPanel.getButton("Insertar urna electoral");
+        JButton votanteButton = startButtonPanel.getButton("Ingresar votante");
+        JButton votoButton = startButtonPanel.getButton("Ingresar voto");
+        JButton candidatoButton = startButtonPanel.getButton("Ingresar candidato");
+        JButton datosIngresadosButton = startButtonPanel.getButton("Ver datos ingresados");
 
         urnaElectoralButton.addActionListener(e -> {
             cardLayout.show(cardPanel, "urnaElectoralScreen");
         });
+
+
 
     }
 

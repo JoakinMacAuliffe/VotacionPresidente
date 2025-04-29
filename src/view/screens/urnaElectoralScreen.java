@@ -10,14 +10,14 @@ public class urnaElectoralScreen {
 
     private final JPanel panel;
 
-    public urnaElectoralScreen() {
+    public urnaElectoralScreen(JPanel parentPanel, CardLayout cardLayout) {
         panel = new JPanel();
         panel.add(new JLabel("test"));
         JButton button1 = addButton("test");
         panel.add(button1);
 
         button1.addActionListener(e -> {
-            panel.setBackground(Color.blue);
+            cardLayout.show(parentPanel, "startScreen");
         });
 
     }
