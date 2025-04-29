@@ -28,14 +28,20 @@ public class startScreen {
         startPanel.add(startTitle, BorderLayout.NORTH);
         startPanel.add(startButtonPanel.getPanel(), BorderLayout.CENTER);
 
-        // Instanciar panel de urna electoral
+        // Instanciar paneles
         urnaElectoralScreen urnaElectoralScreen = new urnaElectoralScreen(cardPanel, cardLayout);
         votanteScreen votanteScreen = new votanteScreen(cardPanel, cardLayout);
+        votoScreen votoScreen = new votoScreen(cardPanel, cardLayout);
+        candidatoScreen candidatoScreen = new candidatoScreen(cardPanel, cardLayout);
+        datosIngresadosScreen datosIngresadosScreen = new datosIngresadosScreen(cardPanel, cardLayout);
 
         // Indicar pantallas
         cardPanel.add(startPanel, "startScreen");
         cardPanel.add(urnaElectoralScreen.getPanel(), "urnaElectoralScreen");
         cardPanel.add(votanteScreen.getPanel(), "votanteScreen");
+        cardPanel.add(votoScreen.getPanel(), "votoScreen");
+        cardPanel.add(candidatoScreen.getPanel(), "candidatoScreen");
+        cardPanel.add(datosIngresadosScreen.getPanel(), "datosIngresadosScreen");
 
         // Agregar el panel principal al frame de inicio
         startFrame.add(cardPanel);
