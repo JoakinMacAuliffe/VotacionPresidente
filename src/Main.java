@@ -1,4 +1,4 @@
-import view.*;
+import view.screens.startScreen;
 
 class Main {
 

@@ -1,15 +1,13 @@
-package view;
+package view.screens;
 
-import view.screens.*;
 import view.panels.StartButtonPanel;
 import javax.swing.*;
 import java.awt.*;
 
 public class startScreen {
 
-    private CardLayout cardLayout;
-    private JPanel cardPanel;
-    private JPanel startPanel;
+    private final CardLayout cardLayout;
+    private final JPanel cardPanel;
 
     public startScreen() {
 

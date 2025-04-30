@@ -10,20 +10,12 @@ public class urnaElectoralScreen {
 
     public urnaElectoralScreen(JPanel parentPanel, CardLayout cardLayout) {
 
-        panel = new urnaElectoralPanel().getPanel();
-
-//        button1.addActionListener(e -> {
-//            cardLayout.show(parentPanel, "startScreen");
-//        });
+        panel = new urnaElectoralPanel(parentPanel, cardLayout).getPanel();
 
     }
 
     public JPanel getPanel() {
         return panel;
-    }
-
-    public JButton addButton(String name){
-        return new JButton(name);
     }
 
 }
