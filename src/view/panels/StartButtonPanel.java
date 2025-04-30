@@ -17,7 +17,7 @@ public class StartButtonPanel {
         addButton("Insertar urna electoral");
         addButton("Ingresar votante");
         addButton("Ingresar voto");
-        addButton("Ingresar candidato");
+        addButton("Ingresar lista de candidatos");
         addButton("Ver datos ingresados");
 
     }

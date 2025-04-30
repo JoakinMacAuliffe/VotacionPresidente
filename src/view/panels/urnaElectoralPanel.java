@@ -1,10 +1,12 @@
 package view.panels;
 
-import model.Linkedlist;
+import model.Candidato;
+import view.dataManagement;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class urnaElectoralPanel {
@@ -24,8 +26,19 @@ public class urnaElectoralPanel {
         panel.add(Box.createVerticalStrut(20));
 
         // Crear cuadros de texto para ingresar parametros
-        JList<Linkedlist> listaCandidatos = new JList<>();
-        panel.add(listaCandidatos);
+        JComboBox<String> candidatoList = new JComboBox<>();
+
+        candidatoList.addItem("Seleccione lista de candidatos");
+
+        Map<String, Candidato> listaCandidatosMap = new dataManagement().getListaCandidatosMap();
+
+        for (Map.Entry<String, Candidato> entry : listaCandidatosMap.entrySet()) {
+            candidatoList.addItem(entry.getKey());
+        }
+
+        candidatoList.setMaximumSize(new Dimension(450, 30));
+        panel.add(candidatoList);
+        panel.add(Box.createVerticalStrut(5));
 
         // Crear botones
         JButton crearUrnaElectoralButton = addButton("Crear urna electoral");

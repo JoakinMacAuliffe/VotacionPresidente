@@ -11,7 +11,7 @@ public class Linkedlist {
         }
     }
 
-    Linkedlist() {
+    public Linkedlist() {
         head = null;
     }
 

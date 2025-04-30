@@ -30,7 +30,7 @@ public class startScreen {
         urnaElectoralScreen urnaElectoralScreen = new urnaElectoralScreen(cardPanel, cardLayout);
         votanteScreen votanteScreen = new votanteScreen(cardPanel, cardLayout);
         votoScreen votoScreen = new votoScreen(cardPanel, cardLayout);
-        candidatoScreen candidatoScreen = new candidatoScreen(cardPanel, cardLayout);
+        listaCandidatosScreen listaCandidatosScreen = new listaCandidatosScreen(cardPanel, cardLayout);
         datosIngresadosScreen datosIngresadosScreen = new datosIngresadosScreen(cardPanel, cardLayout);
 
         // Indicar pantallas
@@ -38,7 +38,7 @@ public class startScreen {
         cardPanel.add(urnaElectoralScreen.getPanel(), "urnaElectoralScreen");
         cardPanel.add(votanteScreen.getPanel(), "votanteScreen");
         cardPanel.add(votoScreen.getPanel(), "votoScreen");
-        cardPanel.add(candidatoScreen.getPanel(), "candidatoScreen");
+        cardPanel.add(listaCandidatosScreen.getPanel(), "listaCandidatosScreen");
         cardPanel.add(datosIngresadosScreen.getPanel(), "datosIngresadosScreen");
 
         // Agregar el panel principal al frame de inicio
@@ -49,7 +49,7 @@ public class startScreen {
         JButton urnaElectoralButton = startButtonPanel.getButton("Insertar urna electoral");
         JButton votanteButton = startButtonPanel.getButton("Ingresar votante");
         JButton votoButton = startButtonPanel.getButton("Ingresar voto");
-        JButton candidatoButton = startButtonPanel.getButton("Ingresar candidato");
+        JButton listaCandidatosButton = startButtonPanel.getButton("Ingresar lista de candidatos");
         JButton datosIngresadosButton = startButtonPanel.getButton("Ver datos ingresados");
 
         // Acciones de botones
@@ -62,8 +62,8 @@ public class startScreen {
         votoButton.addActionListener(e -> {
             cardLayout.show(cardPanel, "votoScreen");
         });
-        candidatoButton.addActionListener(e -> {
-            cardLayout.show(cardPanel, "candidatoScreen");
+        listaCandidatosButton.addActionListener(e -> {
+            cardLayout.show(cardPanel, "listaCandidatosScreen");
         });
         datosIngresadosButton.addActionListener(e -> {
             cardLayout.show(cardPanel, "datosIngresadosScreen");

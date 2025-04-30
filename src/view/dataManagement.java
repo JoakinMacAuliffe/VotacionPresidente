@@ -2,28 +2,30 @@ package view;
 
 import model.*;
 
-import javax.swing.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class dataManagement {
 
-    private final JList<Candidato> listaCandidatosJList = new JList<>();
-    private final JList<UrnaElectoral> urnaElectoralJList = new JList<>();
-    private final JList<Voto> votoJList = new JList<>();
-    private final JList<Votante> votanteJList = new JList<>();
+    private final Map<String, Candidato> listaCandidatosMap = new HashMap<>();
+    private final Map<String, UrnaElectoral> urnaElectoralMap = new HashMap<>();
+    private final Map<String, Voto> votoMap = new HashMap<>();
+    private final Map<String, Votante> votanteMap = new HashMap<>();
 
-    public JList<Candidato> getListaCandidatosJList() {
-        return listaCandidatosJList;
+    public Map<String, Candidato> getListaCandidatosMap() {
+        listaCandidatosMap.put("Lista 1", new Candidato("Jorge", "PC"));
+        return listaCandidatosMap;
     }
 
-    public JList<UrnaElectoral> getUrnaElectoralJList() {
-        return urnaElectoralJList;
+    public Map<String, UrnaElectoral> getUrnaElectoralMap() {
+        return urnaElectoralMap;
     }
 
-    public JList<Voto> getVotoJList() {
-        return votoJList;
+    public Map<String, Voto> getVotoMap() {
+        return votoMap;
     }
 
-    public JList<Votante> getVotanteJList() {
-        return votanteJList;
+    public Map<String, Votante> getVotanteMap() {
+        return votanteMap;
     }
 }
