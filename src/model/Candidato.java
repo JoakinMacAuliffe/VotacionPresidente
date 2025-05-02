@@ -20,13 +20,13 @@ public class Candidato {
 	int getID(){
 		return id;
 	}
-	String getNombre(){
+	public String getNombre(){
 		return nombre;
 	}
-	String getPartido(){
+	public String getPartido(){
 		return partido;
 	}
-	int getVotos(){
+	public int getVotos(){
 		return votosRecibidos.size();
 	}
 

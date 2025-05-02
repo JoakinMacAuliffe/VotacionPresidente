@@ -25,20 +25,31 @@ public class urnaElectoralPanel {
         panel.add(urnaElectoralTitle);
         panel.add(Box.createVerticalStrut(20));
 
-        // Crear cuadros de texto para ingresar parametros
+        // Crear menu de listas de candidatos
         JComboBox<String> candidatoList = new JComboBox<>();
-
         candidatoList.addItem("Seleccione lista de candidatos");
-
         Map<String, Candidato> listaCandidatosMap = new dataManagement().getListaCandidatosMap();
-
         for (Map.Entry<String, Candidato> entry : listaCandidatosMap.entrySet()) {
             candidatoList.addItem(entry.getKey());
         }
-
         candidatoList.setMaximumSize(new Dimension(450, 30));
         panel.add(candidatoList);
         panel.add(Box.createVerticalStrut(5));
+
+        // Funcion del menu de listas de candidatos
+//        candidatoList.addActionListener(e -> {
+//            if(!candidatoList.getSelectedItem().equals("Seleccione lista de candidatos")){
+//                for(Map.Entry<String, Candidato> entry : listaCandidatosMap.entrySet()){
+//                    if(entry.getKey() == candidatoList.getSelectedItem()){
+//                        Candidato candidato = entry.getValue();
+//                        JLabel nombreCandidato = new JLabel(candidato.getNombre());
+//                        JLabel partidoCandidato = new JLabel(candidato.getPartido());
+//                        panel.add(nombreCandidato);
+//                        panel.add(partidoCandidato);
+//                    }
+//                }
+//            }
+//        });
 
         // Crear botones
         JButton crearUrnaElectoralButton = addButton("Crear urna electoral");

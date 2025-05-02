@@ -1,7 +1,10 @@
 package view.panels;
 
+import model.Linkedlist;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.TextEvent;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +36,12 @@ public class listaCandidatosPanel {
         volverAlMenuButton.addActionListener(e -> {
             cardLayout.show(parentPanel, "startScreen");
         });
+
+        // Función del botón crearNuevaLista
+        crearNuevaLista.addActionListener(e -> {
+            Linkedlist listaCandidatos = new Linkedlist();
+        });
+
 
     }
 
